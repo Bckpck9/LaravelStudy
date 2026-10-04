@@ -10,11 +10,14 @@ class PostService{
     public function index($data){
 
         $filter = app()->make(PostFilter::class,['queryParams' => array_filter($data)]);
-        $posts = Post::filter($filter);
+        $posts = Post::filter($filter)
+            ->where('user_id', auth()->id());
         return $posts->paginate(4);
     }
 
     public function store($data){
+        
+        $data['user_id'] = auth()->id();
         
         $tags = $data['tags'] ?? [];
 

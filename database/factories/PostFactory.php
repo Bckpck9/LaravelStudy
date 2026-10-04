@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 
@@ -26,6 +27,7 @@ class PostFactory extends Factory
             "likes" => fake()->numberBetween(1, 100),
             "is_published" => fake()->randomElement(['true','false']),
             'category_id' => Category::inRandomOrder()->first()->id,
+            'user_id' => User::InRandomOrder()->first()->id,
         ];
     }
 }
