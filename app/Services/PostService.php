@@ -27,4 +27,8 @@ class PostService{
 
         $post->tags()->attach($tags);
     }
+
+    public function update(Post $post, array $data){
+        $post->update($data);
+    }
 }

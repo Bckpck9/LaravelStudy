@@ -37,8 +37,7 @@
     @foreach ($posts as $post)
         <div>
             <h2>{{ $post->title }}</h2>
-            <p>Image: {{ $post->image }}</p>
-            <p>Likes: {{ $post->likes }}</p>
+            <a href="{{route ('post.show',$post)}}">Посмотреть</a>
         </div>
     @endforeach
 
