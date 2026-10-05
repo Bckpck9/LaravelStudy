@@ -31,4 +31,8 @@ class PostService{
     public function update(Post $post, array $data){
         $post->update($data);
     }
+
+    public function delete($post){
+        $post->delete();
+    }
 }

@@ -18,6 +18,7 @@ class StoreController extends Controller{
 
     public function __invoke(PostStoreRequest $request)
     {
+        $this->authorize('create');
         $data = $request->validated();
         $this->postService->store($data);
 

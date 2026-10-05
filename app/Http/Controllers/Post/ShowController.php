@@ -18,6 +18,7 @@ class ShowController extends Controller{
 
     public function __invoke(Post $post)
     {
+        $this->authorize('view',$post);
         return view('post.show', compact('post'));
     }
 }

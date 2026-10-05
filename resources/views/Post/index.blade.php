@@ -37,8 +37,26 @@
     @foreach ($posts as $post)
         <div>
             <h2>{{ $post->title }}</h2>
-            <a href="{{route ('post.show',$post)}}">Посмотреть</a>
+
+            <a href="{{ route('post.show', $post) }}">
+                Посмотреть
+            </a>
+
+            <a href="{{ route('post.edit', $post) }}">
+                Редактировать
+            </a>
+
+            <form action="{{ route('post.delete', $post) }}" method="POST">
+                @csrf
+                @method('DELETE')
+
+                <button type="submit">
+                    Удалить
+                </button>
+            </form>
         </div>
+
+        <hr>
     @endforeach
 
     <div>

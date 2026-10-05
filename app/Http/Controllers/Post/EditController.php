@@ -18,7 +18,7 @@ class EditController extends Controller{
 
     public function __invoke(Post $post)
     {
-
+        $this->authorize('update',$post);
         return view('post.edit', compact('post'));
     }
 }

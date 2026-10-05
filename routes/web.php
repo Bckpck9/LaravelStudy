@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Post\DeleteController;
 use App\Http\Controllers\Post\EditController;
 use App\Http\Controllers\Post\IndexController;
 use App\Http\Controllers\Post\ShowController;
@@ -35,6 +36,9 @@ Route::put('/posts/{post}',UpdateController::class)
 
 Route::get('/posts/{post}/edit',EditController::class)
     ->name('post.edit');
+
+Route::delete('posts/{post}',DeleteController::class)
+    ->name('post.delete');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

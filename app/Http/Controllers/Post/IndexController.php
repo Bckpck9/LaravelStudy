@@ -19,11 +19,12 @@ class IndexController extends Controller
 
     public function __invoke(PostFilterRequest $request)
     {
-        //$category = Category::find(1);
+
     
         $data = $request->validated();
         
         $posts = $this->postService->index($data);
+        
         return view('post.index', compact('posts'));
 
     }

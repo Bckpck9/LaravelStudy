@@ -18,6 +18,8 @@ class UpdateController extends Controller{
 
     public function __invoke(PostUpdateRequest $request, Post $post)
     {
+        $this->authorize('update',$post);
+        
         $data = $request -> validated();
 
         $this->postService->update($post, $data);
