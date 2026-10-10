@@ -8,6 +8,7 @@ use App\Models\Tag;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostStoreRequest;
+use App\Http\Resources\Post\PostResource;
 use App\Services\PostService;
 
 
@@ -19,6 +20,6 @@ class ShowController extends Controller{
     public function __invoke(Post $post)
     {
         $this->authorize('view',$post);
-        return view('post.show', compact('post'));
+        return new PostResource($post);
     }
 }

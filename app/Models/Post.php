@@ -14,7 +14,8 @@ class Post extends Model
         'image',
         'likes',
         'is_published',
-        'user_id'
+        'user_id',
+        'category_id'
     ];
 
     use HasFactory,Filterable;

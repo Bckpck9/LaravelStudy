@@ -26,7 +26,7 @@ class PostStoreRequest extends FormRequest
             'title' => ['string','max:255'],
             'image' => ['string'],
             'likes' => ['required', 'integer', 'min:0'],
-            'category_id' => '',
+            'category_id' => ['nullable', 'integer', 'exists:categories,id'],
             'tags' => ''        
         ];
     }

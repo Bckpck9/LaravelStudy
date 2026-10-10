@@ -22,7 +22,10 @@ return new class extends Migration
             $table->foreignId('tag_id')
                 ->constrained()
                 ->cascadeOnDelete();
+
+            $table->unique(['post_id', 'tag_id']);
         });
+        
     }
 
     /**
@@ -30,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('post_tags');
+        Schema::dropIfExists('post_tag');
     }
 };
